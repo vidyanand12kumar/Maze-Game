@@ -1,0 +1,158 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f0f0f0;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+#maze-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+  gap: 1px;
+  background-color: #333;
+  width: 100%;
+  max-width: 600px; /* Maximum width for the maze */
+  justify-content: center;
+}
+
+.cell {
+  width: 100%;
+  height: 40px; /* Fixed height for the cells */
+  background-color: #fff;
+  border: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.cell.path {
+  background-color: #FFC107;
+}
+
+.cell.current {
+  background-color: #FF5722; /* Active rat position */
+}
+
+.cell.blocked {
+  background-color: #803434; /* Color for blocked cells */
+}
+
+.cell.start {
+  background-color: #4caf50; /* Color for start cell */
+}
+
+.cell.end {
+  background-color: #1613da; /* Color for end cell */
+}
+
+.cell.backtrack {
+  background-color: #ffeb3b; /* Color for backtracking */
+}
+.cell.path-right::after {
+  content: '→';
+  color: white;
+  font-size: 1.2em;
+}
+
+.cell.path-down::after {
+  content: '↓';
+  color: white;
+  font-size: 1.2em;
+}
+
+.cell.path-left::after {
+  content: '←';
+  color: white;
+  font-size: 1.2em;
+}
+
+.cell.path-up::after {
+  content: '↑';
+  color: white;
+  font-size: 1.2em;
+}
+
+
+button {
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+button:focus {
+  outline: none; /* Remove default focus outline */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Add a glow effect */
+}
+
+input[type="number"] {
+  width: 80px;
+  margin: 10px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+}
+
+input[type="number"]:focus {
+  border-color: #007bff; /* Change border color on focus */
+  outline: none; /* Remove default outline */
+}
+
+.container {
+  text-align: center; /* Center align text in controls */
+  margin-bottom: 20px;
+}
+
+#message {
+  margin: 20px;
+  padding: 15px;
+  font-size: 18px;
+  color: #fff; /* White text for contrast */
+  border-radius: 8px; /* Rounded corners */
+  text-align: center; /* Center the text */
+  transition: background-color 0.5s ease; /* Smooth background color transition */
+}
+
+/* Success Message Style */
+.success {
+  background-color: #4caf50; /* Green */
+}
+
+/* Error Message Style */
+.error {
+  background-color: #f44336 ; /* Red */
+}
+
+/* Info Message Style */
+.info {
+  background-color: #2196f3; /* Blue */
+}
+.warning {
+  background-color: #f48f36;
+}
